@@ -2,7 +2,7 @@
   //API: https://pokeapi.co/docsv2
   //define link de consumo à api
   //TO-DO: ADICIONAR LINK DA API PARA LISTAR POKEMONS
-  const URL = '';
+  const URL = 'https://pokeapi.co/api/v2/pokemon/?limit=10';
   //instancia classe responsável ao consumo da api
   const xhr = new XMLHttpRequest();
   //define opções da requisição
@@ -26,6 +26,7 @@
     div.classList.add('row');
     //itera em cada um dos pokemons
     pokemons.map(pokemon => {
+   
       //cria coluna do bootstrap
       const col = document.createElement('div');
       col.classList.add('col-md-3', 'col-sm-6', 'col-12')
@@ -36,7 +37,7 @@
       card.addEventListener('click', function() {
         //CHAMAR FUNÇÃO MOSTRA POKEMON PASSANDO COMO
         // PARAMETRO O LINK OBTIDO PARA CADA POKEMON
-
+        mostraPokemon(pokemon.url);
 
 
 
@@ -52,6 +53,8 @@
       const cardTitle = document.createElement('h5');
       cardTitle.classList.add('card-title');
       //TO-DO: ADICIONE AQUI O NOME DOS POKEMONS
+      cardTitle.innerHTML = pokemon.name;
+      
 
 
 
